@@ -28,6 +28,9 @@ then
 		rm lineage_patches_unified/patches_treble_phh/platform_system_netd/0001-Support-no-bpf-usecase.patch
 		rm lineage_patches_unified/patches_treble_phh/platform_system_bpf/0001-Support-no-bpf-usecase.patch
 		rm lineage_patches_unified/patches_treble/system_core/0002-Panic-into-recovery-rather-than-bootloader.patch
+		rm lineage_patches_unified/patches_treble_phh/platform_frameworks_opt_net_ims/0001-Pie-MTK-IMS-calls-static-ImsManager.updateImsService.patch
+		rm lineage_patches_unified/patches_treble_phh/platform_frameworks_opt_telephony/0004-Reintroduce-public-void-TelephonyMetrics.writeRilSen.patch
+
 
 		# keep that droid-ng style
 		rm -r lineage_patches_unified/patches_platform/*
