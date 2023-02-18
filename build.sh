@@ -32,10 +32,10 @@ cd src
 #if ! [ -e synchronized ]
 if true
 then
-	bash lineage_build_unified/buildbot_unified.sh treble 64VN
+	bash lineage_build_unified/buildbot_unified.sh treble 64VN A64VN 64VS A64VS
 	touch synchronized
 else
-	bash lineage_build_unified/buildbot_unified.sh treble nosync A64VN A64VS 64VN 64VS
+	bash lineage_build_unified/buildbot_unified.sh treble nosync 64VN A64VN 64VS A64VS
 fi
 
 #bash -l
