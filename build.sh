@@ -12,13 +12,24 @@ then
 	mkdir src
 	(
 		cd src
-		repo init -u https://github.com/droidng/android.git -b ng-v3
-		git clone https://github.com/Kethen/lineage_build_unified lineage_build_unified -b ng-v3
-		git clone https://github.com/Kethen/lineage_patches_unified lineage_patches_unified -b ng-v3
-		# un-clonable without access
-		sed -i 's#<project name="droid-ng/android_vendor_priv" path="vendor/priv" remote="private" revision="master" groups="notdefault,ng_priv" />##g' .repo/manifests/snippets/ng.xml
+		( yes||: ) | repo init -u https://github.com/droid-ng/android -b ng-v4 --git-lfs
+		git clone https://github.com/Kethen/lineage_build_unified lineage_build_unified -b ng-v4
+		git clone https://github.com/Kethen/lineage_patches_unified lineage_patches_unified -b ng-v4
 	)
 fi
+
+# provide phh superuser
+(
+	cd src
+	if ! [ -d vendor/foss ]
+	then
+		mkdir -p vendor
+		git clone https://github.com/phhusson/vendor_foss.git vendor/foss
+		cd vendor/foss
+		apt install -y wget xmlstarlet unzip aapt
+		bash update.sh
+	fi
+)
 
 mkdir -p ccache
 export USE_CCACHE=1
