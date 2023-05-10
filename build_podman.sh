@@ -10,5 +10,6 @@ podman run \
 	-v ./homedir:/homedir \
 	-e HOME=/homedir \
 	-v ./build.sh:/build.sh \
+	-e NOSYNC="$NOSYNC" \
 	--entrypoint '["/bin/bash", "/build.sh"]' \
 	lineageos4microg/docker-lineage-cicd
